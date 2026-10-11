@@ -103,7 +103,7 @@ mvn exec:java -Dexec.mainClass=com.example.jdbctool.Main
 
 ![运行效果](docs/screenshots/03-run-result.png)
 
-更多截图见 [`docs/screenshots/`](docs/screenshots)。
+
 
 ---
 
