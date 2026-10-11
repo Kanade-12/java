@@ -316,7 +316,7 @@ public class JDBCTool {
             if (value instanceof LocalDateTime) {
                 return Timestamp.valueOf((LocalDateTime) value);
             }
-            // 閬垮厤浣跨敤宸茶繃鏃剁殑 Date(String) 鏋勯€犲櫒
+            // 避免使用已过时的 Date(String) 构造器
             return s.contains(":") ? Timestamp.valueOf(s) : java.sql.Date.valueOf(s);
         }
 
