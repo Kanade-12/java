@@ -8,17 +8,23 @@
     <groupId>com.example</groupId>
     <artifactId>jdbctool-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>jdbctool-demo</name>
+    <description>基于 JDBC + 反射的简易 ORM 工具类 JDBCTool，演示 DateTest 库两张表的增删改查</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
+        <!-- MySQL 8 驱动（8.0.33 起官方坐标已从 mysql:mysql-connector-java 迁移到 com.mysql:mysql-connector-j） -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
         </dependency>
     </dependencies>
@@ -33,6 +39,10 @@
                     <source>8</source>
                     <target>8</target>
                     <encoding>UTF-8</encoding>
+                    <!-- JDK 9+ 下用 -source 8 编译会输出 "source value 8 is obsolete" 提示，此处屏蔽该选项类提示 -->
+                    <compilerArgs>
+                        <arg>-Xlint:-options</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
 
